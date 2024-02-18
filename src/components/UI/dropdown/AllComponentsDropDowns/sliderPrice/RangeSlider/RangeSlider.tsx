@@ -30,7 +30,7 @@ const RangeSliderPrice = () => {
 
   return (
     <StyledSliderPrice>
-      <Box sx={{ width: 300 }}>
+      <Box sx={{ width: 370, padding: "0 6px" }}>
         <CoolSlider
           getAriaLabel={() => "Minimum distance"}
           min={30000}

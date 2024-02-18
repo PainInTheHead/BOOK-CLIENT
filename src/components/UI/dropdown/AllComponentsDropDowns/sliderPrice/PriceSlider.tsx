@@ -10,8 +10,6 @@ const PriceSlider: React.FC<handleProprsForDrop> = ({
   handleChangeDropDownActive,
   activeDrop,
 }) => {
-
-
   const handleToggle = () => {
     handleChangeDropDownActive("Price");
   };
@@ -28,7 +26,14 @@ const PriceSlider: React.FC<handleProprsForDrop> = ({
           activeDrop.Price ? "dropdown-options active" : "dropdown-options"
         }
       >
-        <RangeSliderPrice/>
+        <Image
+          className="three"
+          src="/three.svg"
+          width={33}
+          height={20}
+          alt="elem"
+        />
+        <RangeSliderPrice />
       </div>
     </StyledPriceSlider>
   );

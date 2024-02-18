@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const StyledSliderPrice = styled.div`
   width: 100%;
-  /* padding: 20px 0; */
+  display: flex;
+  flex-direction: column;
   .value-slider {
     margin-top: 20px;
     display: flex;

@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-const Catalog = styled.div`
+export const StyledHome = styled.div`
   margin: 0 auto;
   max-width: 1280px;
-  height: 72px;
+  border: none;
   .catalog-filter {
+    margin-top:470px;
+    height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +15,14 @@ const Catalog = styled.div`
     }
   }
   .catalog-content {
+    margin-top: 38px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .banner-header {
+    position: absolute;
+    z-index: 1;
+    top: 3%;
   }
 `;
-
-export { Catalog };

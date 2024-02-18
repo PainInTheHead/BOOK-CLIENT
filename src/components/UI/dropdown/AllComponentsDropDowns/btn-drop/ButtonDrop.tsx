@@ -16,7 +16,7 @@ const ButtonDrop: React.FC<dropProps> = ({ isOpen, handleToggle, btnName }) => {
         width={24}
         height={24}
         alt="arrow"
-      ></Image>
+      />
     </button>
   );
 };

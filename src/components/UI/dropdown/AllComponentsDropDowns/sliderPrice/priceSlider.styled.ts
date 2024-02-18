@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const StyledPriceSlider = styled.div`
-position: relative;
+  position: relative;
   color: #344966;
-.dropdown-options.active {
+  .dropdown-options.active {
     opacity: 1;
     visibility: visible;
   }
   .dropdown-options {
-    width: 305px;
+    width: 390px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;

@@ -8,7 +8,7 @@ const StyledDropdownCategories = styled.div`
     visibility: visible;
   }
   .dropdown-options {
-    width: 305px;
+    width: 275px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;

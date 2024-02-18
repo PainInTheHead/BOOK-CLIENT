@@ -3,11 +3,13 @@ import styled from "styled-components";
 const StyledDropDowns = styled.div`
   display: flex;
   div:not(:last-child) {
-    margin-right: 15px;
+    margin-right: 20px;
   }
   .btn-dropmenu {
+    width: 200px;
     color: #344966;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-radius: 16px;

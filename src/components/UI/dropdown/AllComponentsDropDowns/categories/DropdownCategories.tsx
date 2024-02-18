@@ -43,7 +43,7 @@ const DropdownCategories: React.FC<handleProprsForDrop> = ({
           width={33}
           height={20}
           alt="elem"
-        ></Image>
+        />
         <label>
           <input
             type="checkbox"
