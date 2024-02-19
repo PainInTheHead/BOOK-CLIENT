@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const StyledFormChange = styled.div`
   width: 522px;
+
+    input:focus {
+          outline: none;
+        
+    }
   .pers-info-header {
     display: flex;
     justify-content: space-between;
@@ -48,5 +53,17 @@ export const StyledFormChange = styled.div`
 
   h1 {
     font-size: 20px;
+  }
+
+  .btn-confirm{
+    border-radius:16px;
+    width:170px;
+    height:44px;
+    color: #F0F4EF;
+    margin-top: 30px;
+    font-size:16px;
+    background: #344966;
+    text-align:center;
+    cursor: pointer;
   }
 `;

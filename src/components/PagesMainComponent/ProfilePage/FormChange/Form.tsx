@@ -8,6 +8,7 @@ const FormChangeProfile = () => {
     <StyledFormChange>
      
           <form action="">
+            <div>
             <div className="pers-info-header">
               <h1>Personal information</h1>
               <button className="ChangeInformation">Change information</button>
@@ -55,7 +56,7 @@ const FormChangeProfile = () => {
             <div className="user-name">
               <Image
                 className="icon-username"
-                src="/profilePage/nameIcon.svg"
+                src="/login/Hide.svg"
                 width={24}
                 height={24}
                 alt="user-icon"
@@ -73,7 +74,7 @@ const FormChangeProfile = () => {
             <div className="user-name">
               <Image
                 className="icon-username"
-                src="/profilePage/nameIcon.svg"
+                src="/login/Hide.svg"
                 width={24}
                 height={24}
                 alt="user-icon"
@@ -82,8 +83,7 @@ const FormChangeProfile = () => {
                 <input
                   className="input-name"
                   type="text"
-                  value={`kenzi.lawson@example.com`}
-                  readOnly
+                  placeholder="New password"
                 />
               </div>
             </div>
@@ -91,23 +91,24 @@ const FormChangeProfile = () => {
             <div className="user-name">
               <Image
                 className="icon-username"
-                src="/profilePage/nameIcon.svg"
+                src="/login/Hide.svg"
                 width={24}
                 height={24}
                 alt="user-icon"
               />
               <div className="wrapper-name-input">
-                <span className="nameHolder">Your email</span>
+                
                 <input
                   className="input-name"
                   type="text"
-                  value={`kenzi.lawson@example.com`}
-                  readOnly
+                  placeholder="Password replay"
                 />
               </div>
 
             </div>
               <span className="label-pass">Repeat your password without errors</span>
+            </div>
+              <button className="btn-confirm" type="submit">Confirm</button>
           </form>
     </StyledFormChange>
   );
