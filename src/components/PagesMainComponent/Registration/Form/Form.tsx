@@ -8,7 +8,7 @@ import { Poppins } from "next/font/google";
 import ButtonPass from "@/components/UI/btnPass/ButtonPass";
 import type { MouseEventHandler } from "react";
 import { useRouter } from "next/router";
-
+import axios from "axios";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 const poppinsCommon = Poppins({ subsets: ["latin"], weight: "400" });
@@ -45,7 +45,7 @@ const RegForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const router = useRouter()
+  const router = useRouter();
   const emailValue = watch("email");
   const passValue = watch("password");
   const confirmValue = watch("confirmPassword");
@@ -75,11 +75,20 @@ const RegForm = () => {
     });
   };
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log(data);
-    if (data) {
-      router.push("/authorization/login");
+    const response = await axios.post(
+      `http://localhost:3002/user/registration`,
+      {
+        email: data.email,
+        password: data.password,
+      }
+    );
+    if (!response) {
+      return alert("Try again :(");
     }
+    return router.push("/authorization/login");
+    // return console.log(response.data);
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -159,8 +168,26 @@ const RegForm = () => {
         </div>
 
         <div className="password">
-          <div className={`form-input ${errors.confirmPassword && `error-wrapper`}`}>
+          <div
+            className={`form-input ${
+              errors.confirmPassword && `error-wrapper`
+            }`}
+          >
             <ButtonPass handleTogglePassword={handleTogglePassword} />
+            <TextInput 
+              startCellComponent={ <button
+                className="btn-close"
+                onClick={(e) => handleClearHolderLog(e, "confirm")}
+              >
+                <Image
+                  src="/login/Close.svg"
+                  width={12}
+                  height={12}
+                  alt="close btn"
+                />
+              </button>
+              }
+            />
             <input
               placeholder="Password replay"
               id="confirmPassword"
@@ -198,3 +225,17 @@ const RegForm = () => {
 };
 
 export default RegForm;
+
+
+const TextInput:React.FC<{
+  startCellComponent?: React.ReactNode;
+  endCellComponent?: React.ReactNode;
+}> = (props) => {
+  return (
+    <>
+    {props.startCellComponent && props.startCellComponent}
+    <input type="text"/>
+    {props.endCellComponent && props.endCellComponent}
+    </>
+  );
+}

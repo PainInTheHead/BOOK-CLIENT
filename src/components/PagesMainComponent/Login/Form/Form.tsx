@@ -8,7 +8,7 @@ import { Poppins } from "next/font/google";
 import ButtonPass from "@/components/UI/btnPass/ButtonPass";
 import type { MouseEventHandler } from "react";
 import { useRouter } from "next/router";
-
+import axios from "axios";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 const poppinsCommon = Poppins({ subsets: ["latin"], weight: "400" });
@@ -51,11 +51,21 @@ const passValue = watch("password");
    return reset({ password: "", email: emailValue });
  };
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log(data);
-    if(data) {
-      router.push("/");
+    const response = await axios.post(
+      `http://localhost:3002/user/login`,
+      {
+        email: data.email,
+        password: data.password,
+      })
+
+    if(!response) {
+      alert('Error authorize')
     }
+    // return router.push("/");
+    return console.log(response.data)
+
   };
 
   const [showPassword, setShowPassword] = useState(false);

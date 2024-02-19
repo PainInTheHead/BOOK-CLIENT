@@ -8,7 +8,7 @@ import { useState } from "react";
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 const Header = () => {
   const router = useRouter();
-  const [autorize, setAtorize] = useState(true);
+  const [autorize, setAtorize] = useState(false);
   return (
     <HeaderMain className={poppins.className}>
       <div className="search-section">

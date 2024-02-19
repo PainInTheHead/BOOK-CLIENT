@@ -1,8 +1,8 @@
 import { StyledHome } from "./homePage.styled";
-import DropDowns from "../UI/dropdown/AllComponentsDropDowns/DropDowns";
-import Card from "../Card/Card";
+import DropDowns from "../../UI/dropdown/AllComponentsDropDowns/DropDowns";
+import Card from "../../Card/Card";
 import { Poppins } from "next/font/google";
-import BookSlider from "../UI/bookSlider/BookSlide";
+import BookSlider from "../../UI/bookSlider/BookSlide";
 import Image from "next/image";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });

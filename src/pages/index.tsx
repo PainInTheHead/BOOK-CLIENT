@@ -3,8 +3,7 @@ import type { NextPageWithLayout } from "./_app";
 import type { ReactElement } from "react";
 import Layout from "./../components/layout/Layout";
 
-import HomePage from "@/components/Home/HomePage";
-
+import HomePage from "@/components/PagesMainComponent/Home/HomePage";
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -15,7 +14,9 @@ const Home: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* <Layout> */}
       <HomePage />
+      {/* </Layout> */}
     </>
   );
 };

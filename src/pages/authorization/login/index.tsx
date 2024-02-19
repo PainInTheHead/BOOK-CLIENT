@@ -2,7 +2,7 @@ import Head from "next/head";
 import type { NextPageWithLayout } from "../../_app";
 import type { ReactElement } from "react";
 import Layout from "../../../components/layout/Layout";
-import LogInPage from "@/components/Login/LoginPage";
+import LogInPage from "@/components/PagesMainComponent/Login/LoginPage";
 
 const Login = () => {
   return (

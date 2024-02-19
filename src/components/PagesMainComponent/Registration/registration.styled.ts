@@ -5,6 +5,7 @@ export const StyledLogIn = styled.div`
   width: 1280px;
   display: flex;
   justify-content: space-between;
+  
   .chel{
     width:612px;
     height:522px;
