@@ -1,8 +1,8 @@
 import Head from "next/head";
 import type { NextPageWithLayout } from "../../_app";
 import type { ReactElement } from "react";
-import Layout from "../../../components/layout/Layout";
-import RegistragionPage from "@/components/PagesMainComponent/Registration/Registration";
+import Layout from "../../../layout/Layout";
+import RegistragionPage from "@/views/Registration/Registration";
 
 const Registration = () => {
   return (
@@ -18,10 +18,8 @@ const Registration = () => {
   );
 };
 
-
 Registration.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
-
 
 export default Registration;

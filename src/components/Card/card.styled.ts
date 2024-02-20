@@ -4,6 +4,9 @@ export const StyledCard = styled.div`
   width: 305px;
   height: 663px;
   border-radius: 16px;
+  .MuiRating-root{
+    margin:15px 0;
+  }
   .cover-card {
     position: relative;
     padding: 0;
@@ -16,12 +19,12 @@ export const StyledCard = styled.div`
     position: absolute;
     cursor: pointer;
     padding: 0;
-    width: 26px;
-    height: 26px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: none;
-    top: 5%;
-    left: 5%;
+    top: 4%;
+    left: 7%;
   }
 
   .about-card {
@@ -34,35 +37,23 @@ export const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
     span:last-child {
       color: #b9bac3;
     }
   }
 
   .stars {
-    height: 26px;
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    span {
+    .rateNumber{
       height: 20px;
       letter-spacing: 0;
       font-size: 16px;
       color: #b9bac3;
-    }
-    button {
-      cursor: pointer;
-      width: 26px;
-      height: 26px;
-      background: none;
-    }
-    button:nth-child(-n + 4) {
-      margin-right: 30px;
-    }
-    button:nth-child(5) {
-      margin-right: 24px;
+      margin-left:15px;
     }
   }
 

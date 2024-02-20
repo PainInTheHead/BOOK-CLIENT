@@ -1,9 +1,10 @@
 import { StyledHome } from "./homePage.styled";
-import DropDowns from "../../UI/dropdown/AllComponentsDropDowns/DropDowns";
-import Card from "../../Card/Card";
+import DropDowns from "./UIHome/DropDowns/DropDowns";
+import Card from "../../components/Card/Card";
 import { Poppins } from "next/font/google";
-import BookSlider from "../../UI/bookSlider/BookSlide";
+import BookSlider from "./UIHome/Pagination";
 import Image from "next/image";
+import CardHolder from "./UIHome/CardHolder";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 
@@ -17,16 +18,7 @@ const HomePage = () => {
         <h1 className={poppins.className}>Catalog</h1>
         <DropDowns />
       </div>
-      <div className="catalog-content">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <CardHolder />
       <BookSlider />
       <Image
         src="/banner/bannerLow.svg"

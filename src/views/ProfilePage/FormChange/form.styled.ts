@@ -17,6 +17,7 @@ export const StyledFormChange = styled.div`
         color:#8D9F4F;
         font-size:14px;
         background:none;
+        text-decoration: underline;
 
     }
   }

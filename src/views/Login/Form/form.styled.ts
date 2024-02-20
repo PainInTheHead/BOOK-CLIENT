@@ -8,14 +8,14 @@ export const StyledLogInForm = styled.div`
   }
   form {
     font-size: 16px;
-    span {
+    /* span {
       opacity: 1;
       position: absolute;
       transition: opacity 0.3s ease-in-out;
       top: 105%;
       left: 0;
       color: #ed2e7e;
-    }
+    } */
     label {
       color: #344966;
     }
@@ -30,8 +30,8 @@ export const StyledLogInForm = styled.div`
   input {
     width: 100%;
   }
-  .form-input {
-    /* box-sizing:border-box; */
+  /* .form-input {
+    
     display: flex;
     align-items: center;
     height: 24px;
@@ -43,7 +43,7 @@ export const StyledLogInForm = styled.div`
     input {
       background: none;
       &:focus {
-        outline: none; // Убираем стандартную обводку при фокусе
+        outline: none; 
         background: none;
       }
     }
@@ -54,13 +54,13 @@ export const StyledLogInForm = styled.div`
     img {
       margin-right: 10px;
     }
-  }
+  } */
 
-  .error-wrapper {
+  /* .error-wrapper {
     border: 2px solid #ed2e7e;
     color: #ed2e7e;
     background-color: #fff2f7;
-  }
+  } */
 
   .email {
     position: relative;

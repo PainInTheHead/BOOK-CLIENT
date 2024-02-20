@@ -1,9 +1,9 @@
 import Head from "next/head";
 import type { NextPageWithLayout } from "./_app";
 import type { ReactElement } from "react";
-import Layout from "./../components/layout/Layout";
+import Layout from "../layout/Layout";
 
-import HomePage from "@/components/PagesMainComponent/Home/HomePage";
+import HomePage from "@/views/Home/HomePage";
 
 const Home: NextPageWithLayout = () => {
   return (

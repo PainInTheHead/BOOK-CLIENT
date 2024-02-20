@@ -1,7 +1,7 @@
-import { StyledBookSlider } from "./bookSlider.styled";
+import { StyledBookSlider } from "../PaginationBook";
 import Image from "next/image";
 
-const BookSlider = () => {
+const Pagination = () => {
   return (
     <StyledBookSlider>
       <button className="btn-left">
@@ -11,22 +11,16 @@ const BookSlider = () => {
         <button>
           <Image src="/pagination/Dots.svg" width={20} height={20} alt="back" />
         </button>
-        <button>
-          <Image
-            src="/pagination/DotsNone.svg"
-            width={20}
-            height={20}
-            alt="back"
-          />
-        </button>
-        <button>
-          <Image
-            src="/pagination/DotsNone.svg"
-            width={20}
-            height={20}
-            alt="back"
-          />
-        </button>
+        {[...Array(2)].map((_, index) => (
+           <button key={index}>
+           <Image
+             src="/pagination/DotsNone.svg"
+             width={20}
+             height={20}
+             alt="back"
+           />
+         </button>
+        ))}
       </div>
       <button className="btn-right">
         <Image src="/pagination/arrow.svg" width={24} height={24} alt="push" />
@@ -35,4 +29,4 @@ const BookSlider = () => {
   );
 };
 
-export default BookSlider;
+export default Pagination;

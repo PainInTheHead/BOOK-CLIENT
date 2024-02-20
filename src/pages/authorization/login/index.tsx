@@ -1,8 +1,8 @@
 import Head from "next/head";
 import type { NextPageWithLayout } from "../../_app";
 import type { ReactElement } from "react";
-import Layout from "../../../components/layout/Layout";
-import LogInPage from "@/components/PagesMainComponent/Login/LoginPage";
+import Layout from "../../../layout/Layout";
+import LogInPage from "@/views/Login/LoginPage";
 
 const Login = () => {
   return (
@@ -13,15 +13,13 @@ const Login = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <LogInPage/>
+      <LogInPage />
     </>
   );
 };
 
-
 Login.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
-
 
 export default Login;
