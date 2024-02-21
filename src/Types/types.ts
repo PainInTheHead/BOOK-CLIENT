@@ -18,3 +18,19 @@ export type OptionsDrop = {
   };
 
 
+  export type IFormInput = {
+    Email: string;
+    Password: string;
+    ConfirmPassword?: string;
+    UserName?: string;
+    oldPassword?: string;
+  
+  };
+
+
+  export type FormTypes =
+  | "Email"
+  | "Password"
+  | "ConfirmPassword"
+  | "UserName"
+  | "oldPassword";

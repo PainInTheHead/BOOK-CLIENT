@@ -19,7 +19,7 @@ const AboutCard: React.FC<PropsAbout> = ({ name, author, price, value }) => {
       <RatingBook value={value} />
       <div>
         <button className="btn-price btn">
-          <span>${price} USD</span>
+          <span className="price">${price} USD</span>
         </button>
       </div>
     </div>

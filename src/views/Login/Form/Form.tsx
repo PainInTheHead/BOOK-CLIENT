@@ -10,17 +10,12 @@ import type { MouseEventHandler } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import FormInput from "@/components/UI/btnPass/inputProfile/InputProfile";
-
+import { signIn } from "next-auth/react";
+import { FormTypes, IFormInput } from "@/Types/types";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 const poppinsCommon = Poppins({ subsets: ["latin"], weight: "400" });
 const poppinsBtn = Poppins({ subsets: ["latin"], weight: "500" });
-export type IFormInput = {
-  Email: string;
-  Password: string;
-  ConfirmPassword?: string;
-  UserName?: string;
-};
 
 const schema = z.object({
   Email: z.string().email({ message: "Incorrect email address" }),
@@ -30,46 +25,60 @@ const schema = z.object({
 });
 
 const LoginForm = () => {
-const router = useRouter()
-const {
-  register,
-  handleSubmit,
-  reset,
-  watch,
-  formState: { errors },
-} = useForm<IFormInput>({
-  resolver: zodResolver(schema),
-});
-const emailValue = watch("Email");
-const passValue = watch("Password");
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm<IFormInput>({
+    resolver: zodResolver(schema),
+  });
+  const emailValue = watch("Email");
+  const passValue = watch("Password");
 
-
- const handleClearHolderLog = (
-   event: React.MouseEvent<HTMLButtonElement>,
-   name: "Email" | "Password" | "ConfirmPassword" | "UserName"
- ) => {
-   if (name === "Email") {
-    //  event.preventDefault();
-     return reset({ Email: "", Password: passValue });
-   }
-   return reset({ Password: "", Email: emailValue });
- };
+  const handleClearHolderLog = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    name: FormTypes
+  ) => {
+    if (name === "Email") {
+      //  event.preventDefault();
+      return reset({ Email: "", Password: passValue });
+    }
+    return reset({ Password: "", Email: emailValue });
+  };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log(data);
-    const response = await axios.post(
-      `http://localhost:3002/user/login`,
-      {
-        email: data.Email,
-        password: data.Password,
-      })
+    const email = data.Email;
+    const password = data.Password;
 
-    if(!response) {
-      alert('Error authorize')
+    const result = await signIn("credentials", {
+      redirect: false, // Не перенаправлять при неудаче
+      email,
+      password,
+    });
+
+    if (result?.error) {
+      // Показать сообщение об ошибке
+      console.error(result.error);
+    } else {
+      return router.push("/profile");
     }
-    // return router.push("/");
-    return console.log(response.data)
 
+    // const response = await axios.post(
+    //   `http://localhost:3002/user/login`,
+    //   {
+    //     email: data.Email,
+    //     password: data.Password,
+    //   })
+
+    // if(!response) {
+    //   alert('Error authorize')
+    // }
+    // // return router.push("/");
+    // return console.log(response.data)
   };
 
   const [showPassword, setShowPassword] = useState(true);
@@ -78,24 +87,40 @@ const passValue = watch("Password");
     e.preventDefault();
     setShowPassword(!showPassword);
   };
+
   return (
     <StyledLogInForm>
-      <h1 className={poppins.className}>Log In</h1>
+      <h1 className={`${poppins.className} h1-login-form`}>Log In</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={poppinsCommon.className}
+        className={`${poppinsCommon.className} login-form`}
       >
         <div className="email">
-          
-            <FormInput register={register} handleClearHolderLog={handleClearHolderLog} Value={emailValue} name={'Email'} error={errors.Email} errors={errors}/>
-          
+          <FormInput
+            register={register}
+            handleClearHolderLog={handleClearHolderLog}
+            Value={emailValue}
+            name={"Email"}
+            error={errors.Email}
+            errors={errors}
+          />
+
           <label className="label" htmlFor="email">
             Enter your email
           </label>
         </div>
 
         <div className="password">
-        <FormInput register={register} handleClearHolderLog={handleClearHolderLog} Value={passValue} name={'Password'} error={errors.Password} errors={errors} handleTogglePassword={handleTogglePassword} showPassword={showPassword}/>
+          <FormInput
+            register={register}
+            handleClearHolderLog={handleClearHolderLog}
+            Value={passValue}
+            name={"Password"}
+            error={errors.Password}
+            errors={errors}
+            handleTogglePassword={handleTogglePassword}
+            showPassword={showPassword}
+          />
           <label className="label" htmlFor="password">
             Enter your password
           </label>
@@ -105,7 +130,6 @@ const passValue = watch("Password");
           Log In
         </button>
       </form>
-  
     </StyledLogInForm>
   );
 };

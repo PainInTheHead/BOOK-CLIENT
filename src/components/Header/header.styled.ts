@@ -19,7 +19,7 @@ export const HeaderMain = styled.header`
       display: flex;
       align-items: center;
       font-size: 16px;
-      div {
+      .input-con-search-container {
         padding: 0 15px;
         display: flex;
         align-items: center;
@@ -28,33 +28,33 @@ export const HeaderMain = styled.header`
         background-color: #f0f4ef;
         width: 630px;
         height: 64px;
-        button {
+        .btn-input {
           cursor: pointer;
           padding: 0;
           width: 24px;
           height: 24px;
           margin-right: 15px;
         }
-        input {
+        .input {
           background-color: #f0f4ef;
           width: 100%;
         }
-        input::-webkit-input-placeholder {
+        .input::-webkit-input-placeholder {
           color: #b9bac3;
         }
-        input:focus {
+        .input:focus {
           outline: none;
         }
       }
     }
-    .btn-login {
+    .btn-login-con {
       display: flex;
       justify-content: center;
       width: 231px;
       height: 44px;
       background-color: #344966;
       border-radius: 16px;
-      button {
+      .btn-login {
         color: #f0f4ef;
         background: none;
       }

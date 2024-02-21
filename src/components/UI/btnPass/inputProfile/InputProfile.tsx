@@ -1,17 +1,16 @@
-import { IFormInput } from "@/views/Login/Form/Form";
+
 import { StyledinputProfile } from "./input.styled";
 import Image from "next/image";
 import type { UseFormRegister, FieldErrors, FieldError } from "react-hook-form";
 import ButtonPass from "../ButtonPass";
+import { FormTypes, IFormInput } from "@/Types/types";
 
-enum FormNamesEnum {
-  Email = "Email",
-  Password = "Password",
-  ConfirmPassword = "ConfirmPassword",
-  UserName = "UserName"
-}
-
-type FormTypes =  "Email" | "Password" | "ConfirmPassword" | "UserName"
+// enum FormNamesEnum {
+//   Email = "Email",
+//   Password = "Password",
+//   ConfirmPassword = "ConfirmPassword",
+//   UserName = "UserName"
+// }
 
 
 interface ProrpsFormInput {
@@ -20,12 +19,14 @@ interface ProrpsFormInput {
     event: React.MouseEvent<HTMLButtonElement>,
     name: FormTypes
   ) => void;
-  Value: string;
+  Value?: string;
   name: FormTypes;
-  errors: FieldErrors<IFormInput>;
+  errors?: FieldErrors<IFormInput>;
   error?: FieldError;
   handleTogglePassword?: React.MouseEventHandler<HTMLButtonElement>;
   showPassword?: boolean;
+  itsProfile?: boolean;
+  inputValue?: string;
 }
 
 const FormInput: React.FC<ProrpsFormInput> = ({
@@ -36,44 +37,37 @@ const FormInput: React.FC<ProrpsFormInput> = ({
   errors,
   error,
   handleTogglePassword,
-  showPassword
+  showPassword,
+  itsProfile,
+  inputValue,
 }) => {
   return (
     <StyledinputProfile className={`${error && `error-wrapper`}`}>
       {handleTogglePassword ? (
         <ButtonPass handleTogglePassword={handleTogglePassword} />
       ) : (
-        <Image src={`/login/Email.svg`} width={24} height={24} alt={name} />
+        <Image className="img-inputform" src={`/login/${name}.svg`} width={24} height={24} alt={name} />
       )}
-      {/* {"Email"}
-      {FormNamesEnum.Email} */}
-      {name === "UserName" ? (
+      {itsProfile ? (
         <input
-        className="inputForm"
-        placeholder={name}
-        id="email"
-        type= 'text'
-        value={name}
-        readOnly
-        {...register(name)}
-      />
+          className="inputForm"
+          placeholder={name}
+          // id="email"
+          type={showPassword ? "password" : "text"}
+          value={inputValue}
+          readOnly
+          {...register(name)}
+        />
       ) : (
         <input
-        className="inputForm"
-        placeholder={name}
-        id="email"
-        type={showPassword ? 'password' : 'text'}
-        {...register(name)}
-      />
+          className="inputForm"
+          placeholder={name}
+          // id="email"
+          type={showPassword ? "password" : "text"}
+          {...register(name)}
+        />
       )}
-      {/* <input
-        className="inputForm"
-        placeholder={name}
-        id="email"
-        type={showPassword ? 'password' : 'text'}
-        {...register(name)}
-      /> */}
-      {Value && (
+      {(Value && !itsProfile) && (
         <button
           className="btn-close"
           onClick={(e) => handleClearHolderLog(e, name)}
@@ -87,17 +81,17 @@ const FormInput: React.FC<ProrpsFormInput> = ({
         </button>
       )}
       {name === "Email" ? (
-        <span className={`valid ${!errors.Email && `hidden`}`}>
-          {errors.Email && errors.Email.message}
+        <span className={`valid ${!errors?.Email && `hidden`}`}>
+          {errors?.Email && errors.Email.message}
         </span>
       ) : name === "Password" ? (
-        <span className={`valid ${!errors.Password && `hidden`}`}>
-          {errors.Password && errors.Password.message}
+        <span className={`valid ${!errors?.Password && `hidden`}`}>
+          {errors?.Password && errors.Password.message}
         </span>
       ) : (
-        <span className={`valid ${errors.ConfirmPassword ? "" : `hidden`}`}>
-            {errors.ConfirmPassword?.message}
-          </span>
+        <span className={`valid ${errors?.ConfirmPassword ? "" : `hidden`}`}>
+          {errors?.ConfirmPassword?.message}
+        </span>
       )}
     </StyledinputProfile>
   );

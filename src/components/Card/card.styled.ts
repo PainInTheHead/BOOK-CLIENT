@@ -64,7 +64,7 @@ export const StyledCard = styled.div`
     background-color: #344966;
     border-radius: 16px;
     border: none;
-    span {
+    .price {
       color: #f0f4ef;
       font-size: 20px;
       margin: 0 auto;

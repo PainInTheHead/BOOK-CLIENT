@@ -4,9 +4,11 @@ import { HeaderMain } from "./header.styled";
 import { Poppins } from "next/font/google";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 const Header = () => {
+  const session = useSession();
   const router = useRouter();
   const [autorize, setAtorize] = useState(false);
   return (
@@ -17,14 +19,14 @@ const Header = () => {
         </button>
         <div className="search-container">
           <p>Catalog</p>
-          <div>
+          <div className="input-con-search-container">
             <button className="btn btn-input">
               <Image src="/Search.svg" alt="logo1" width={24} height={24} />
             </button>
             <input className="input" type="text" placeholder="Search" />
           </div>
         </div>
-        {autorize ? (
+        {session.data ? (
           <div className="user-buttons">
             <button>
               <Image
@@ -43,7 +45,7 @@ const Header = () => {
                 alt="liked of User"
               />
             </button>
-            <button>
+            <button onClick={() => router.push("/profile")}>
               <Image
                 src="/cart/userprofile.svg"
                 width={48}
@@ -53,11 +55,17 @@ const Header = () => {
             </button>
           </div>
         ) : (
-          <div className="btn-login">
-            <button onClick={() => router.push("/authorization/login")}>
+          <div className="btn-login-con">
+            <button
+              className="btn-login"
+              onClick={() => router.push("/authorization/login")}
+            >
               Log In/
             </button>
-            <button onClick={() => router.push("/authorization/registration")}>
+            <button
+              className="btn-login"
+              onClick={() => router.push("/authorization/registration")}
+            >
               Sing Up
             </button>
           </div>

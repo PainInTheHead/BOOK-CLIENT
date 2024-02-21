@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FooterMain } from "./footer.styled";
+import { signOut } from "next-auth/react";
 const Footer = () => {
   return (
     <FooterMain>
-      <div className="contacts">
-        <Image src="/logoDark.png" alt="logo1" width={88} height={46} />
-        <div>
+      <div className="contacts-con">
+        <Image className="logoDark" src="/logoDark.png" alt="logo1" width={88} height={46} />
+        <div className="contacts">
           <span>tranthuy.nute@gmail.com</span>
           <span>(480) 555-0103</span>
         </div>
@@ -25,6 +26,9 @@ const Footer = () => {
             </li>
             <li>
               <Link href="/">Cart</Link>
+            </li>
+            <li>
+              <Link href="#" onClick={() => signOut()}>Exit</Link>
             </li>
           </ul>
         </nav>

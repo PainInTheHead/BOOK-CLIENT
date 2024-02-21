@@ -4,8 +4,11 @@ import type { ReactElement } from "react";
 import Layout from "../layout/Layout";
 
 import HomePage from "@/views/Home/HomePage";
+import { useSession } from "next-auth/react";
 
 const Home: NextPageWithLayout = () => {
+  const session = useSession()
+  console.log(session)
   return (
     <>
       <Head>

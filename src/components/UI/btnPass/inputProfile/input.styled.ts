@@ -4,24 +4,30 @@ export const StyledinputProfile = styled.div`
   display: flex;
   align-items: center;
   height: 24px;
-  width: 413px;
+  /* width: ; */
   padding: 22px;
   background-color: #f0f4ef;
   border-radius: 16px;
   margin-bottom: 9px;
-  input {
-    width:100%;
+
+  .btn-close {
+    cursor: pointer;
+  }
+  .inputForm {
+    color: #344966;
+
+    width: 100%;
     background: none;
     &:focus {
       outline: none; // Убираем стандартную обводку при фокусе
       background: none;
     }
   }
-  input::-webkit-input-placeholder {
+  .inputForm::-webkit-input-placeholder {
     color: #b9bac3;
   }
 
-  img {
+  .img-inputform {
     margin-right: 10px;
   }
   &.error-wrapper {

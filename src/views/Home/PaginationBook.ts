@@ -8,7 +8,7 @@ export const StyledBookSlider = styled.div`
   margin-bottom:40px;
   display: flex;
   justify-content: space-between;
-  button {
+  .btn {
     cursor: pointer;
     width: 20px;
     height: 20px;

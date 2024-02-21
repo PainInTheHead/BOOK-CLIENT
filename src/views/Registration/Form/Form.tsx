@@ -10,8 +10,9 @@ import type { MouseEventHandler } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import FormInput from "@/components/UI/btnPass/inputProfile/InputProfile";
-import type { IFormInput } from "@/views/Login/Form/Form";
 import type { MouseEvent } from "react";
+import { FormTypes, IFormInput } from "@/Types/types";
+
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 const poppinsCommon = Poppins({ subsets: ["latin"], weight: "400" });
@@ -51,7 +52,7 @@ const RegForm = () => {
 
   const handleClearHolderLog = (
     event: MouseEvent<HTMLButtonElement>,
-    name: "Email" | "Password" | "ConfirmPassword"
+    name: FormTypes
   ) => {
     if (name === "Email") {
       //  event.preventDefault();

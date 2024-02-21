@@ -21,6 +21,8 @@ const StyledDropdownCategories = styled.div`
     border: none;
     border-radius: 16px;
     .three {
+      width:auto;
+      height:auto;
       position: absolute;
       top: -7%;
       left: 5%;

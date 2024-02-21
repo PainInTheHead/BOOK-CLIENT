@@ -5,27 +5,38 @@ import { Poppins } from "next/font/google";
 import BookSlider from "./UIHome/Pagination";
 import Image from "next/image";
 import CardHolder from "./UIHome/CardHolder";
+import { useSession } from "next-auth/react";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 
 const HomePage = () => {
+const session = useSession()
+  
   return (
     <StyledHome>
       <div className="banner-header">
-        <Image src="/banner.png" alt="banner" width={1280} height={400} />
+        <Image 
+        alt="banner" 
+        width="1280"
+        height="400" 
+        priority
+        src="/banner.png" 
+        />
       </div>
       <div className="catalog-filter">
-        <h1 className={poppins.className}>Catalog</h1>
+        <h1 className={`${poppins.className} h1-home-page`}>Catalog</h1>
         <DropDowns />
       </div>
       <CardHolder />
       <BookSlider />
-      <Image
-        src="/banner/bannerLow.svg"
-        width={1280}
-        height={462}
-        alt="banner-low"
-      />
+      {!session.data &&(
+        <Image
+          src="/banner/bannerLow.svg"
+          width={1280}
+          height={462}
+          alt="banner-low"
+        />
+      )}
     </StyledHome>
   );
 };

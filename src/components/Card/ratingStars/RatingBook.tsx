@@ -12,7 +12,7 @@ const RatingBook:React.FC<{value:number}> = ({value}) => {
         sx={{ width: "100%", justifyContent: "space-between" }}
         size="large"
       />
-      <span className="rateNumber">5.0</span>
+      <span className="rateNumber">{value}.0</span>
     </div>
   );
 };

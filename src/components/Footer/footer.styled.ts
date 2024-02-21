@@ -10,11 +10,11 @@ export const FooterMain = styled.footer`
   height: 220px;
   background-color: #0d1821;
   color: #f0f4ef;
-  .contacts {
-    img {
+  .contacts-con {
+    .logoDark {
       margin-bottom: 30px;
     }
-    div {
+    .contacts {
       display: flex;
       flex-direction: column;
     }

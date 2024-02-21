@@ -11,11 +11,12 @@ const ButtonDrop: React.FC<dropProps> = ({ isOpen, handleToggle, btnName }) => {
     <button className="btn-dropmenu" onClick={handleToggle}>
       <span>{btnName}</span>
       <Image
-        className={isOpen ? "rotate-image rotate-90" : "rotate-image"}
-        src="/vectorCat.svg"
-        width={24}
-        height={24}
         alt="arrow"
+        width="24"
+        height="24"
+        className={isOpen ? "rotate-image rotate-90" : "rotate-image"}
+        priority
+        src="/vectorCat.svg"
       />
     </button>
   );

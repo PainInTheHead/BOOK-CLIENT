@@ -10,7 +10,7 @@ export const StyledHome = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h1 {
+    .h1-home-page {
       font-size: 40px;
     }
   }
@@ -22,6 +22,8 @@ export const StyledHome = styled.div`
   }
   .banner-header {
     position: absolute;
+    width:auto;
+    height: auto;
     z-index: 1;
     top: 3%;
   }
